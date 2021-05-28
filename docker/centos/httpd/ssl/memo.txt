@@ -1,0 +1,9 @@
+openssl req -new -newkey rsa:2048 -sha256 -x509 -nodes \
+    -set_serial 1 \
+    -days 3650 \
+    -subj "/C=JP/ST=Tokyo/L=Taito-ku/CN=*.app.localhost" \
+    -out /etc/pki/tls/certs/localhost.crt \
+    -keyout /etc/pki/tls/private/localhost.key
+
+
+IE開き（管理者権限）証明書のインストールする

@@ -1,0 +1,54 @@
+version: "2"
+services:
+  db:
+    build: ./mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 123456
+      TZ: Asia/Tokyo
+    volumes:
+      - ../db:/var/lib/mysql
+  redis:
+    image: redis
+  web:
+    build: ./centos
+    hostname: app.localhost
+    environment:
+      TZ: Asia/Tokyo
+    #logging:
+      #driver: syslog
+    links:
+      - db
+      - redis
+    ports:
+      - "80:80"
+      - "443:443"
+      - "110:110"
+      - "143:143"
+      - "25:25"
+      - "587:587"
+    volumes:
+      - ../:/var/www/app
+    depends_on:
+      - db
+      - redis
+    privileged: true
+    entrypoint: ["/usr/sbin/init"]
+    #command: sh /var/www/app/sh/init.sh
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.6
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+    
+#volumes:
+#  db:
+
