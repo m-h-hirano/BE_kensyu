@@ -297,6 +297,15 @@ a:hover {
   border-radius: 2px;
   font-size: 1.8rem;
 }
+.c-input__search-box{
+  display: block;
+  width: 800px;
+  height: 40px;
+  border: 2px solid #d7dee2;
+  border-radius: 2px;
+  font-size: 1.8rem;
+  margin:80px auto;
+}
 
 .c-textarea {
   width: 390px;
@@ -320,7 +329,7 @@ a:hover {
 .c-paging__box {
   display: flex;
   justify-content: center;
-  margin: auto;
+  margin: 80px auto 0;
 }
 
 .c-paging__list {
@@ -1211,7 +1220,9 @@ a:hover {
 
 .p-thread-list__listbox {
   width: 100%;
-  margin-bottom: 100px;
+  margin:0 auto 80px;
+  /* margin-bottom:80px; */
+ 
 }
 
 .p-thread-list__list {
@@ -1228,6 +1239,7 @@ a:hover {
 
 .p-thread-list__detailbox {
   display: flex;
+  text-align: center;
   padding-bottom: 10px;
   border-bottom: solid #CCCCCC 1px;
 }

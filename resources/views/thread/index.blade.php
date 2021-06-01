@@ -24,6 +24,10 @@
         <div class="p-thread-list">
           <h1 class="c-heading">スレッド一覧</h1>
           <div class="p-thread-list__listbox">
+            <form action="/thread" method="post">
+              @csrf
+              <input class="c-input__search-box" type="text" name="titlename" placeholder="タイトル検索">
+            </form>
             <ul class="p-thread-list__list">
               @foreach ($thredlistitem as $items)
                 <li class="p-thread-list__list-item u-sdw u-sdw--list">
@@ -37,11 +41,11 @@
             </ul>
           </div>
         </div>
-        {{-- <section class="c-paging">
+        <section class="c-paging">
           <div class="c-paging__box">
             {{ $thredlistitem->links('pagination::semantic-ui') }}
           </div>
-        </section> --}}
+        </section>
       </div>
     </main>
 		<footer class="l-footer">

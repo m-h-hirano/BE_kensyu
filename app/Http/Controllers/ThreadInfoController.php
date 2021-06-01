@@ -23,6 +23,12 @@ class ThreadInfoController extends Controller
       
       return view('thread.index', compact('thredlistitem'));
     }
+
+    public function Search_Title(Request $request){
+      $thredlistitem = DB::table('threadinfo')->where('title','like', "%$request->titlename%" )->paginate(10); //コメント取得
+      return view('thread.index', compact('thredlistitem'));
+    }
+
     public function create(){
       return view('thread.create');
     }
