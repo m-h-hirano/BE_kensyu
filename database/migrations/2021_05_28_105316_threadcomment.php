@@ -13,7 +13,7 @@ class Threadcomment extends Migration
      */
     public function up()
     {
-        Schema::create('thread_comments', function (Blueprint $table) {
+        Schema::create('threadcomments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('comment');
             $table->string('comment_user');

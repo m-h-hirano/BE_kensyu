@@ -8,17 +8,20 @@
   <title>ログイン</title>
 </head>
 <body>
-
-  {{-- @if(Auth::check()) 
-    {{\Auth::user()->name}}さん
-  @else ゲストさん
-     --}}
   <main class="l-contents">
     <div class="l-contents__in">
       <div class="p-login">
-      
         <div class="p-login__box u-ta-c">
           <h1 class="c-heading">ログイン</h1>
+          @if ($errors->any())
+          <div class="errors">
+            <ul class="p-error__list">
+              @foreach ($errors->all() as $error)
+                <li>{{ '※' . $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
           <form name="loginform" action="/auth/login" method="post" >   
             {{csrf_field()}}
             <input type="text" name="email" class="c-input u-m-t-50 u-m-b-50" size="30" placeholder="メールアドレス" value="{{old('email')}}">

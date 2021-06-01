@@ -13,12 +13,25 @@
       <div class="p-create_user">
         <div class="p-create_user__box u-ta-c">
           <h1 class="c-heading">ユーザー作成</h1>
+          @if ($errors->any())
+          <div class="errors">
+            <ul class="p-error__list">
+              @foreach ($errors->all() as $error)
+                <li>{{ '※' . $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
           <form name="registform" action="/auth/register" method="post" >
             {{csrf_field()}}
-            <input type="text" name="name" class="c-input u-m-t-30 u-m-b-30" size="30" placeholder="名前"><span>{{$errors->first('name')}}</span>
-            <input type="text" name="email" class="c-input u-m-b-30" size="30" placeholder="メールアドレス"><span>{{$errors->first('email')}}</span>
-            <input type="password" name="password" class="c-input u-m-b-30" size="30" placeholder="パスワード"><span>{{$errors->first('password')}}</span>
-            <input type="password" name="password_confirmation" class="c-input  u-m-b-30" size="30" placeholder="パスワード(確認)"><span>{{$errors->first('password')}}</span>
+            <input type="text" name="name" class="c-input u-m-t-30 u-m-b-30" size="30" placeholder="名前">
+            {{-- <span>{{$errors->first('name')}}</span> --}}
+            <input type="text" name="email" class="c-input u-m-b-30" size="30" placeholder="メールアドレス">
+            {{-- <span>{{$errors->first('email')}}</span> --}}
+            <input type="password" name="password" class="c-input u-m-b-30" size="30" placeholder="パスワード">
+            {{-- <span>{{$errors->first('password')}}</span> --}}
+            <input type="password" name="password_confirmation" class="c-input  u-m-b-30" size="30" placeholder="パスワード(確認)">
+            {{-- <span>{{$errors->first('password')}}</span> --}}
             <div class="p-login__create_user">
               <button type="submit" value="send" name="action" class="c-button">送信</button>
             </div>

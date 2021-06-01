@@ -1523,4 +1523,14 @@ a:hover {
   height: 50px;
 }
 
+.p-error__list {
+  margin-bottom: 30px;
+}
+
+.p-error__list li {
+  color:red;
+}
+
+
+
 /*****************************/

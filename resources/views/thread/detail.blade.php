@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 		<title>スレッド詳細画面</title>
 	</head>
@@ -11,9 +12,11 @@
       <h1 class="c-heading c-heading--header">BE研修サイト</h1>
       <nav class="l-navi">
         <ul class="l-navi__list">
-          <li><a href="#" class="l-navi__list-item">スレッド一覧</a></li>
-          <li><a href="#" class="l-navi__list-item">スレッド作成</a></li>
-          <li><a href="#" class="l-navi__list-item">ログアウト</a></li>
+          <li><a href="/thread" class="l-navi__list-item">スレッド一覧</a></li>
+          <li><a href="/thread/mythread" class="l-navi__list-item">マイスレッド一覧</a></li>
+          <li><a href="/thread/create" class="l-navi__list-item">スレッド作成</a></li>
+          <li><a href="/user/edit" class="l-navi__list-item">ユーザー情報更新</a></li>
+          <li><a href="/auth/logout" class="l-navi__list-item">ログアウト</a></li>
        </ul>
      </nav>
 		</header>

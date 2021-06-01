@@ -12,7 +12,9 @@
       <nav class="l-navi">
         <ul class="l-navi__list">
           <li><a href="/thread" class="l-navi__list-item">スレッド一覧</a></li>
+          <li><a href="/thread/mythread" class="l-navi__list-item">マイスレッド一覧</a></li>
           <li><a href="/thread/create" class="l-navi__list-item">スレッド作成</a></li>
+          <li><a href="/user/edit" class="l-navi__list-item">ユーザー情報更新</a></li>
           <li><a href="/auth/logout" class="l-navi__list-item">ログアウト</a></li>
        </ul>
      </nav>
@@ -22,13 +24,16 @@
         <div class="p-create_thread">
           <div class="p-create_thread__box u-ta-c">
             <h1 class="c-heading">スレッド作成</h1>
-            @if(count($errors) > 0)
-            <ul class="bg-danger">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-             @endif
+            @if ($errors->any())
+              <div class="errors">
+                <ul class="p-error__list">
+                  @foreach ($errors->all() as $error)
+                    <li>{{ '※' . $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            @endif
+           
             <form name="registform" action="{{ action('ThreadInfoController@store') }}" method="post" >
               @csrf
               <input type="text" name="thread_title" class="c-input u-m-t-30 u-m-b-30" size="30" placeholder="タイトル">

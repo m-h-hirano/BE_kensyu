@@ -4,10 +4,11 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-		<title>スレッド一覧</title>
+		<title>マイスレッド一覧画面</title>
 	</head>
 	<body>
-		<header class="l-header">
+    
+    <header class="l-header">
       <h1 class="c-heading c-heading--header">BE研修サイト</h1>
       <nav class="l-navi">
         <ul class="l-navi__list">
@@ -22,7 +23,7 @@
 		<main class="l-contents">
       <div class="l-contents__in">
         <div class="p-thread-list">
-          <h1 class="c-heading">スレッド一覧</h1>
+          <h1 class="c-heading">マイスレッド一覧</h1>
           <div class="p-thread-list__listbox">
             <ul class="p-thread-list__list">
               @foreach ($thredlistitem as $items)
